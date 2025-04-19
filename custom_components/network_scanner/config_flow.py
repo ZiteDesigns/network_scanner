@@ -24,7 +24,6 @@ class NetworkScannerConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         data_schema_dict = {
             vol.Required("ip_range", description={"suggested_value": yaml_config.get("ip_range", "192.168.1.0/24")}): str
-            vol.Required("scan_freq", description={"suggested_value": yaml_config.get("scan_freq", "15")}): str
         }
 
         # Add mac mappings with values from YAML if available
