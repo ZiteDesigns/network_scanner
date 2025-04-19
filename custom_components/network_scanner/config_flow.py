@@ -23,7 +23,7 @@ class NetworkScannerConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             return self.async_create_entry(title="Network Scanner", data=user_input)
 
         data_schema_dict = {
-            vol.Required("ip_range", description={"suggested_value": yaml_config.get("ip_range", "192.168.1.0/24")}): str
+            vol.Required("ip_range", description={"suggested_value": yaml_config.get("ip_range", "192.168.1.0-255")}): str
         }
 
         # Add mac mappings with values from YAML if available
