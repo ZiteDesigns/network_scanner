@@ -24,10 +24,11 @@ class NetworkScannerConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         data_schema_dict = {
             vol.Required("ip_range", description={"suggested_value": yaml_config.get("ip_range", "192.168.1.0/24")}): str
+            vol.Required("scan_freq", description={"suggested_value": yaml_config.get("scan_freq", "15")}): str
         }
 
         # Add mac mappings with values from YAML if available
-        for i in range(1, 26):  # Ensure at least 25 entries
+        for i in range(1, 40):  # Ensure at least 25 entries
             key = f"mac_mapping_{i}"
             if key in yaml_config:
                 suggested_value = yaml_config.get(key)
@@ -39,7 +40,7 @@ class NetworkScannerConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema_dict[vol.Optional(key, description={"suggested_value": suggested_value})] = str
 
         # Continue to add more mappings if available in the YAML config
-        i = 26
+        i = 40 #custom
         while True:
             key = f"mac_mapping_{i}"
             if key in yaml_config:
