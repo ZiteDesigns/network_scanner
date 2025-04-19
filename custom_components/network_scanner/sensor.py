@@ -4,7 +4,7 @@ from datetime import timedelta
 from homeassistant.helpers.entity import Entity
 from .const import DOMAIN
 
-SCAN_INTERVAL = timedelta(minutes=15)
+SCAN_INTERVAL = timedelta(minutes=10)
 
 _LOGGER = logging.getLogger(__name__)
 
